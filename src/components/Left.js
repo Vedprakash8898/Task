@@ -1,88 +1,169 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Card from "@mui/material/Card";
+
+import CardContent from "@mui/material/CardContent";
+
+import Avatar from "@mui/material/Avatar";
+
+import Typography from "@mui/material/Typography";
+
+import { Grid, ListItem, ListItemButton } from "@mui/material";
+import { Container } from "@mui/material";
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+
+import FeedIcon from '@mui/icons-material/Feed';
+import GroupIcon from '@mui/icons-material/Group';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import AddchartIcon from '@mui/icons-material/Addchart';
+import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 
+import "./left.css";
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
-
-export default function Left() {
+export default function RecipeReviewCard() {
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+
+  const bull = (
+    <Box
+      component="span"
+      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+    >
+      •
+    </Box>
+  );
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-     />
+    <Container>
 
-<Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={6}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-     />
-     
-        
-        <Grid item xs={3}>
-            
-          <Item>xs=8</Item>
+      <div >
+      <Card  sx={{ maxWidth: 345 }}>
+        <div className="topMenu">
+        <Grid container className="image" spacing={3}>
+          <Grid item xs={3} className="avtar_wrapper">
+            <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+          </Grid>
+          <Grid item xs={8}>
+            <Typography className="heading">
+              Priyanka <span>Sharma</span>
+              <br />
+              Bussiness Analyst
+         
+            </Typography>
+          </Grid>    
+</Grid>
+<hr/>
 
-        </Grid>
-        <Grid item xs={4}>
-          <Item>xs=4</Item>
-        </Grid>
+
+
+        <ListItem >
+            <ListItemButton>
+              <ListItemIcon>
+                <FeedIcon />
+              </ListItemIcon>
+              <ListItemText style={{color:"#FFFFFF"}} className="text1" primary="Your Feed" />
+            </ListItemButton>
+          </ListItem>
+
+
+
+          <ListItem >
+            <ListItemButton>
+              <ListItemIcon>
+                <GroupIcon />
+              </ListItemIcon>
+              <ListItemText cl primary="Groups" />
+            </ListItemButton>
+          </ListItem>
+
+
+          <ListItem >
+            <ListItemButton>
+              <ListItemIcon>
+                <ShowChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Activity" />
+            </ListItemButton>
+          </ListItem>
+
+
+
+          <ListItem >
+            <ListItemButton>
+              <ListItemIcon>
+                <AddchartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Activity Matrics" />
+            </ListItemButton>
+          </ListItem>
+
+
+          <ListItem >
+            <ListItemButton>
+              <ListItemIcon>
+                <SettingsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Account Settings" />
+            </ListItemButton>
+          </ListItem>
+
+
+          <ListItem >
+            <ListItemButton>
+              <ListItemIcon>
+                <LogoutIcon />
+              </ListItemIcon>
+              <ListItemText primary="Logout" />
+            </ListItemButton>
+          </ListItem>
+          </div>
+      </Card>
+      </div>
+          
         
-      </Grid>
-    </Box>
+
+        <div className="mainconatiner">
+        <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+      <ListItem >
+            <ListItemButton>
+              <ListItemIcon>
+                <GroupIcon />
+              </ListItemIcon>
+              <ListItemText  secondary="My Groups" />
+            </ListItemButton>
+          </ListItem>
         
-        
-      
-      
-      
+             <div className="div3">
+             <Typography variant="h6" component="h2" className="sidecontent">
+             Business Analyst
+         </Typography>
+         <Typography variant="h" component="p">
+             11 Member
+         </Typography>
+             </div>
+      </CardContent>
       
     </Card>
+        </div>
+
+
+    </Container>
+
+
+
+
+
+
+      
+
   );
+
+
+
+  
 }

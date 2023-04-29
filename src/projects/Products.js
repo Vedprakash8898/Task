@@ -27,7 +27,7 @@ function Products() {
 
   return (
     
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         {Api.map((data) => (
           <Grid  item md={3}>            
             <Card className="container_wrapper"  sx={{ display:'flex', flexDirection:'column' ,alignItems:'center', justifyContent:'center' }}>
